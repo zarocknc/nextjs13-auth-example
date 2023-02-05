@@ -4,6 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { TfiBell } from "react-icons/tfi";
 import {BsFillGearFill} from "react-icons/bs"
+import Image from "next/image";
 
 export default function NavUserInfo() {
   const { data: session } = useSession();
@@ -20,7 +21,7 @@ export default function NavUserInfo() {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src={session.user?.image as string} />
+              <Image src={session.user?.image as string} width="128" height="128" alt="avatar"/>
             </div>
           </label>
           <ul

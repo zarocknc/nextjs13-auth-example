@@ -3,8 +3,6 @@ import {
   TfiMenu,
   TfiHome,
   TfiInfoAlt,
-  TfiBell,
-  TfiSearch,
 } from "react-icons/tfi";
 import { MdForum } from "react-icons/md";
 import { TbPokeball } from "react-icons/tb";
@@ -29,7 +27,7 @@ export const enlaces = [
   },
 ];
 
-export default () => {
+export default function Navbar() {
   return (
     <div className="navbar bg-base-200">
       <div className="navbar-start">

@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 
+export const revalidate = 3600; // revalidate every hour
+
+
 type Data = {
   name: String;
 };

@@ -1,11 +1,20 @@
-async function fetcheando() {
-    return await fetch('http://localhost:3000/api/posts/allPosts')
-}
+
+import { PrismaClient } from "@prisma/client";
+
+export const revalidate = 3600; // revalidate every hour
 
 
 export default async function Posts() {
-    const allPostres = await fetcheando()
-    const data = await allPostres.json()
-
-    return(<pre>{JSON.stringify(data)}</pre>)
+  const prisma = new PrismaClient();
+  const listPost = await prisma.post.findMany()
+ 
+  return (
+    <div>
+      <ul>
+        {listPost.map((hi) => (
+          <li key={hi.id}>{hi.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }

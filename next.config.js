@@ -5,6 +5,15 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: "cdn.discordapp.com",
+        port: '',
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

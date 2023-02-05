@@ -1,16 +1,13 @@
-"use client"
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
-import { ReactNode } from "react";
-import { Session } from "next-auth/core/types";
+import { getSession, SessionProvider } from "next-auth/react";
 import Navbar from "@/components/navigation/Navbar";
+import AuthSessionPrider from "@/components/AuthLayoutParser";
 
-interface IProps {
-  children: ReactNode;
-  session: Session;
-}
-
-export default function RootLayout({ children, session}: IProps) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" data-theme="emerald">
       {/*
@@ -19,10 +16,10 @@ export default function RootLayout({ children, session}: IProps) {
       */}
       <head />
       <body>
-        <SessionProvider session={session}>
+        <AuthSessionPrider>
           <Navbar />
           {children}
-          </SessionProvider>
+        </AuthSessionPrider>
       </body>
     </html>
   );
